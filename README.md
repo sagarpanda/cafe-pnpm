@@ -1,6 +1,6 @@
 # Cafe
 
-It's a monorepo with `pnpm` workspace
+It's a monorepo using `pnpm` workspace
 
 ## Installation
 
@@ -13,11 +13,12 @@ pnpm install
 ```sh
 # @cafe/react
 cd package/react
-# Build @cafe/react
+# build @cafe/react
 pnpm run build
-# Build @cafe/react (watch mode)
+# build @cafe/react (watch mode)
 pnpm run build --watch
-
+# build from root directory
+pnpm --filter @cafe/react run build
 
 # @cafe/demo-app
 cd apps/demo-app
@@ -25,6 +26,8 @@ cd apps/demo-app
 pnpm run dev
 # build app
 pnpm run build
+# build from root directory
+pnpm --filter @cafe/demo-app run build
 
 # add a devDependency in @cafe/react
 cd package/react
@@ -32,6 +35,9 @@ pnpm add @types/node -D
 # same command for local dependency (e.g. in @cafe/demo-app)
 cd apps/demo-app
 pnpm add @cafe/react
+
+# build all
+pnpm --filter "@cafe/*" build
 
 # Add new react app in apps folder
 cd apps
@@ -138,7 +144,7 @@ export type ButtonProps = {
 };
 
 export const Button = (props: ButtonProps) => {
-  return <button {...props} className="yahoo12" />;
+  return <button {...props} />;
 };
 ```
 

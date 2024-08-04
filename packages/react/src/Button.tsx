@@ -5,5 +5,5 @@ export type ButtonProps = {
 };
 
 export const Button = (props: ButtonProps) => {
-  return <button {...props} className="yahoo12" />;
+  return <button {...props} />;
 };
